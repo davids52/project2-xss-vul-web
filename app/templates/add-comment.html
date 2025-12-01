@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm bình luận mới</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Thêm bình luận mới</h1>
+        <form id="commentForm">
+            <div class="form-group">
+                <label for="star">Đánh giá sao:</label>
+                <select id="star" name="star" required>
+                    <option value="">-- Chọn số sao --</option>
+                    <option value="1">1 sao</option>
+                    <option value="2">2 sao</option>
+                    <option value="3">3 sao</option>
+                    <option value="4">4 sao</option>
+                    <option value="5">5 sao</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Tiêu đề:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Nội dung bình luận:</label>
+                <textarea id="content" name="content" rows="5" required></textarea>
+            </div>
+
+            <button type="submit">Gửi bình luận</button>
+        </form>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="/static/js/add-comment.js"></script>
+</body>
+
+</html>

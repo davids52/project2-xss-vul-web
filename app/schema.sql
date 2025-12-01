@@ -1,0 +1,24 @@
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE posts (
+    post_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    author VARCHAR(200) NOT NULL,
+    post_title VARCHAR(100) NOT NULL,
+    avatar_url VARCHAR(100), 
+    content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE comments (
+    comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    post_id INTEGER,
+    commentor VARCHAR(200) NOT NULL,
+    star INTEGER NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(post_id) REFERENCES posts(post_id) ON DELETE CASCADE
+);

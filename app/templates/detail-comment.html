@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Comment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .comment-details {
+            padding: 30px;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-label {
+            width: 150px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .detail-value {
+            flex: 1;
+        }
+
+        .status-active {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .status-inactive {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        .star-rating {
+            color: #ffc107;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .content-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2575fc;
+        }
+
+        .timestamp {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-edit {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background-color: #0069d9;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        @media (max-width: 600px) {
+            .detail-row {
+                flex-direction: column;
+            }
+
+            .detail-label {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Chi tiết Comment</h1>
+            <div class="subtitle">Thông tin chi tiết về đánh giá của người dùng</div>
+        </header>
+
+        <div class="comment-details">
+            <div class="detail-row">
+                <div class="detail-label">ID Bài viết:</div>
+                <div class="detail-value" id="post-id">Đang tải...</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Người bình luận:</div>
+                <div class="detail-value" id="commentor">Đang tải...</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Tiêu đề:</div>
+                <div class="detail-value" id="title">Đang tải...</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Nội dung:</div>
+                <div class="detail-value">
+                    <div class="content-box" id="content">Đang tải...</div>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Đánh giá:</div>
+                <div class="detail-value">
+                    <span id="star" class="star-rating">Đang tải...</span>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Thời gian:</div>
+                <div class="detail-value timestamp" id="created-at">Đang tải...</div>
+            </div>
+
+        </div>
+
+        <div class="actions">
+            <button class="btn-back" onclick="goBack()">Quay lại</button>
+
+        </div>
+    </div>
+
+</body>
+<script src="/static/js/detail-comment.js"></script>
+
+</html>

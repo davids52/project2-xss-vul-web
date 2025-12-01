@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head></head>
+
+<html>
+
+<h1>Hello, Let me know your name...</h1>
+<form action="" method="POST" id="name-input">
+    <p id="name-container">Your name:<input type="text" name="name"></p>
+    <input type="submit" value="submit">
+
+    <label for="csp">Turn CSP</label>
+    <select name="csp-options" id="">
+        <option value="on">On</option>
+        <option value="off">Off</option>
+    </select>
+</form>
+
+</html>
+
+<script>
+    document.getElementById('name-input').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formElement = document.getElementById('name-input');
+        const formData = new FormData(formElement);
+
+        const cspOption = formData.get('csp-options');
+        if (cspOption === 'on') {
+            fetch(`/api/csp/on`, { method: 'POST' });
+        } else {
+            fetch(`/api/csp/off`, { method: 'POST' });
+        }
+
+        fetch(`/index`, {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            window.location.href = '/home';
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>

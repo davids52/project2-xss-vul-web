@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Bài viết</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/post.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/home">Trang Chủ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Quay lại</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <!-- Post Details -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="text-center my-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Đang tải bài viết...</p>
+                </div>
+
+                <!-- Post Content -->
+                <div id="postContent" class="d-none">
+                    <!-- Author Info -->
+                    <div class="author-info mb-4">
+                        <div class="d-flex align-items-center">
+                            <img id="authorAvatar" src="" alt="Avatar" class="avatar me-3">
+                            <div>
+                                <h5 id="authorName" class="mb-0"></h5>
+                                <small id="postDate" class="text-muted"></small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Title & Content -->
+                    <div class="post-card card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h1 id="postTitle" class="card-title post-title"></h1>
+                            <div id="postContentText" class="post-content mt-4"></div>
+                        </div>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div class="comments-section">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="mb-0">
+                                Bình luận
+                                <span id="commentsCount" class="badge bg-secondary ms-2"></span>
+                            </h3>
+                            <button id="writeCommentBtn" class="btn btn-success">
+                                <i class="fas fa-pen"></i> Viết bình luận
+                            </button>
+                        </div>
+
+                        <div id="commentsList">
+                            <!-- Comments will be loaded here -->
+                        </div>
+
+                        <!-- No Comments Message -->
+                        <div id="noComments" class="text-center py-4 d-none">
+                            <p class="text-muted">Chưa có bình luận nào. Hãy là người đầu tiên bình luận!</p>
+                            <button id="writeCommentBtnEmpty" class="btn btn-success mt-2">
+                                <i class="fas fa-pen"></i> Viết bình luận đầu tiên
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="alert alert-danger text-center d-none" role="alert">
+                    <h4 class="alert-heading">Đã xảy ra lỗi!</h4>
+                    <p id="errorText">Không thể tải bài viết. Vui lòng thử lại sau.</p>
+                    <a href="/home" class="btn btn-primary">Quay lại trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS holder -->
+
+</body>
+
+</html>
