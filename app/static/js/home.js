@@ -54,7 +54,7 @@ function displayPosts(posts) {
                 </div>
                 <div class="card-footer bg-transparent border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <button class="btn btn-outline-primary btn-sm" onclick="viewPost(${post.post_id})">
+                        <button id="${post.post_id}" class="btn btn-outline-primary btn-sm view-detailPost-btn">
                             Đọc thêm
                         </button>
                     </div>
@@ -93,6 +93,12 @@ function formatDate(dateString) {
 function viewPost(postId) {
     window.location.href = `/post/${postId}`;
 }
+
+document.addEventListener('click', (event) => {
+    if (event.target && event.target.classList.contains('view-detailPost-btn')) {
+        viewPost(event.target.id);
+    }
+})
 
 document.addEventListener('DOMContentLoaded', function () {
     fetchPosts();

@@ -53,7 +53,7 @@ def create_app(test_config=None):
             abort(500)
 
         if app.csp.get('status') == 'on':
-            headers['Content-Security-Policy'] = f'script-src \'self\' \'unsafe-inline\' https://cdn.jsdelivr.net; style-src \'self\' \'unsafe-inline\' https://cdn.jsdelivr.net '
+            headers['Content-Security-Policy'] = f'script-src \'self\' https://cdn.jsdelivr.net; style-src \'self\' https://cdn.jsdelivr.net '
 
         script_src = f"""
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
